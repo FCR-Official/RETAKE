@@ -1,3 +1,8 @@
+No problem—we can clean that right up. I have removed the <section id="main-project"> block and the corresponding CSS from the code below, reverting your layout to your clean, original grid design while keeping all your other content intact.
+
+Copy and paste this into your index.html file, save it, and you're good to go:
+
+xml
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,15 +36,10 @@
   .hero p { margin-top: 1.2rem; font-size: 1.1rem; color: var(--muted); letter-spacing: 0.05em; max-width: 480px; margin-inline: auto; position: relative; animation: fadeUp 0.7s 0.15s ease both; }
   .hero-tags { display: flex; gap: 0.6rem; justify-content: center; margin-top: 2rem; position: relative; animation: fadeUp 0.7s 0.25s ease both; }
   .tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 3px; border: 1px solid; }
-  .tag.red  { border-color: rgba(224,48,48,0.5); color: #ff8080; background: rgba(224,48,48,0.08); }
+  .tag.red { border-color: rgba(224,48,48,0.5); color: #ff8080; background: rgba(224,48,48,0.08); }
   .tag.dark { border-color: rgba(180,30,30,0.4); color: #cc6060; background: rgba(180,30,30,0.08); }
-  .tag.dim  { border-color: rgba(140,20,20,0.4); color: #aa5050; background: rgba(140,20,20,0.08); }
+  .tag.dim { border-color: rgba(140,20,20,0.4); color: #aa5050; background: rgba(140,20,20,0.08); }
   @keyframes fadeUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
-
-  .hero-project-container { max-width: 900px; margin: 0 auto 4rem auto; text-align: center; padding: 0 2rem; }
-  .hero-game-card { border: 2px solid var(--accent); border-radius: 12px; box-shadow: 0 0 30px rgba(224,48,48,0.2); overflow: hidden; margin-top: 1rem; }
-  .hero-game-card .iframe-wrap { padding-top: 56.25%; position: relative; width: 100%; overflow: hidden; background: #0a0101; }
-  .hero-game-card iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
   .section-wrap { width: 100%; }
   .section-01 { background: var(--bg-01); }
@@ -73,7 +73,7 @@
   .episodes-footer { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.2rem; border-top: 1px solid var(--border); }
   .episodes-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
   .playlist-link { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
-  .playlist-link:hover { opacity: 1; }
+  .playlist-linkhover { opacity: 1; }
 
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
   @media (max-width: 620px) { .about-grid { grid-template-columns: 1fr; } nav { display: none; } header { padding: 0 1.25rem; } .hero { padding: 4rem 1.5rem 3rem; } }
@@ -114,16 +114,6 @@
   </div>
 </div>
 
-<!-- FEATURED PROJECT -->
-<section id="main-project" class="hero-project-container">
-  <h2 class="section-title" style="margin-bottom: 1rem;">Featured Project</h2>
-  <div class="hero-game-card">
-    <div class="iframe-wrap">
-      <iframe src="https://scratch.mit.edu/projects/1314775326/embed" allowfullscreen title="Clock"></iframe>
-    </div>
-  </div>
-</section>
-
 <!-- 01 GAMES -->
 <div class="section-wrap section-01">
   <section id="games">
@@ -133,11 +123,8 @@
       <div class="section-line"></div>
     </div>
     <div class="games-grid">
-<!-- Polygon Printer -->
       <div class="game-card">
-        <div class="iframe-wrap">
-          <iframe src="https://scratch.mit.edu/projects/1288760669/embed" allowfullscreen title="Polygon Printer"></iframe>
-        </div>
+        <div class="iframe-wrap"><iframe src="https://scratch.mit.edu/projects/1288760669/embed" allowfullscreen title="Polygon Printer"></iframe></div>
         <div class="card-info">
           <div class="card-title">Polygon Printer</div>
           <div class="card-desc">An interactive tool that draws polygons dynamically. Tweak the sides and watch the shapes come to life.</div>
@@ -147,12 +134,8 @@
           </div>
         </div>
       </div>
-
-      <!-- Clock (Already featured, but you can keep it in the grid too) -->
       <div class="game-card">
-        <div class="iframe-wrap">
-          <iframe src="https://scratch.mit.edu/projects/1314775326/embed" allowfullscreen title="Clock"></iframe>
-        </div>
+        <div class="iframe-wrap"><iframe src="https://scratch.mit.edu/projects/1314775326/embed" allowfullscreen title="Clock"></iframe></div>
         <div class="card-info">
           <div class="card-title">Clock</div>
           <div class="card-desc">A working clock built entirely in Scratch — watch the hands tick in real time.</div>
@@ -162,12 +145,8 @@
           </div>
         </div>
       </div>
-
-      <!-- Spinning Snowflake -->
       <div class="game-card">
-        <div class="iframe-wrap">
-          <iframe src="https://scratch.mit.edu/projects/1314935638/embed" allowfullscreen title="Spinning Snowflake"></iframe>
-        </div>
+        <div class="iframe-wrap"><iframe src="https://scratch.mit.edu/projects/1314935638/embed" allowfullscreen title="Spinning Snowflake"></iframe></div>
         <div class="card-info">
           <div class="card-title">Spinning Snowflake</div>
           <div class="card-desc">A mesmerizing snowflake simulation with rotating fractal-like geometry — pure visual zen.</div>
@@ -180,6 +159,59 @@
     </div>
   </section>
 </div>
-...
+
+<!-- 02 EPISODES -->
+<div class="section-wrap section-02">
+  <section id="episodes">
+    <div class="section-header">
+      <span class="section-num">02 —</span>
+      <span class="section-title">Episodes</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="episodes-player">
+      <div class="yt-embed">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=PLkAjmZJzBAYIHBUP1pvk0mK_OZQVJuL1V&autoplay=0" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="FCR Episodes Playlist"></iframe>
+      </div>
+      <div class="episodes-footer">
+        <span class="episodes-label">FCR Episodes · 6 videos</span>
+        <a class="playlist-link" href="https://www.youtube.com/playlist?list=PLkAjmZJzBAYIHBUP1pvk0mK_OZQVJuL1V" target="_blank">Open playlist ↗</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- 03 ABOUT -->
+<div class="section-wrap section-03">
+  <section id="about">
+    <div class="section-header">
+      <span class="section-num">03 —</span>
+      <span class="section-title">About</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>About Me</h3>
+        <p>I'm a game developer who builds projects on Scratch. I love creating interactive experiences — from polygon tools to simulations. This hub showcases my best work.</p>
+        <div class="stat-row">
+          <div class="stat"><div class="stat-num">3</div><div class="stat-label">Projects</div></div>
+          <div class="stat"><div class="stat-num">6</div><div class="stat-label">Episodes</div></div>
+          <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Fun</div></div>
+        </div>
+      </div>
+      <div class="about-card">
+        <h3>How to Play</h3>
+        <p>Each project runs directly in your browser via Scratch's embed. Click the green flag inside any window to start. Use on-screen controls or keyboard to interact.</p>
+        <br/>
+        <p style="font-size:0.82rem; color: #5a3030; margin-top: 0.5rem;">Tip: Click "Open ↗" on any card to play fullscreen on Scratch.mit.edu.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <button class="footer-logo" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">GAME.HUB</button>
+  <div>Built with Scratch · Hosted with ♥</div>
+</footer>
+
 </body>
 </html>
