@@ -7,13 +7,17 @@
 <title>RETAKE</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg:    #0e0404; --bg-01: #110505; --bg-02: #150606; --bg-03: #190707;
-    --card:  #180606; --border: #3a1010;
-    --accent: #e03030; --accent2: #ff6060;
-    --text:  #ffaaaa; --muted: #994444;
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:    #0e0404; --bg-01: #110505; --bg-02: #150606; --bg-03: #190707;
+  --card:  #180606; --border: #3a1010;
+  --accent: #e03030; --accent2: #ff6060;
+  --text:  #ffaaaa; --muted: #994444;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
   body { background: var(--bg); color: var(--text); font-family: 'Rajdhani', sans-serif; min-height: 100vh; overflow-x: hidden; }
   body::before { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px); pointer-events: none; z-index: 999; }
 
@@ -106,10 +110,8 @@
   <p>Three handcrafted projects — built with Scratch, playable right here.</p>
   <div class="about-grid">
   <div class="about-card">
-    <!-- content -->
   </div>
-  <!-- YOU ARE PROBABLY MISSING THE CLOSING DIV FOR THE GRID HERE -->
-</div> <!-- Add this closing div -->
+</div>
 
 <!-- 01 GAMES -->
 <div class="section-wrap section-01">
@@ -221,9 +223,21 @@
 </div>
 
 <footer>
-  <button class="footer-logo" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">GAME.HUB</button>
+  <button class="footer-logo" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth', block:'start'})">GAME.HUB</button>
   <div>Built with Scratch · Hosted with ♥</div>
 </footer>
 
+<script>
+  document.querySelectorAll('nav button, .logo, .footer-logo').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const id = this.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (!target) return;
+      const top = target.getBoundingClientRect().top + window.scrollY - 64;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+</script>
 </body>
 </html>
