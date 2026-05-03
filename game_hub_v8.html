@@ -1,34 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- 1. The Title for your Browser Tab -->
-  <title>RETAKE</title>
-  
-  <!-- 2. The Favicon (The / ensures it looks in the root folder) -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet"/>
-  
-  <style>
-    /* Your existing CSS... */
-    header { height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; background: #0a0202; border-bottom: 1px solid #3a1010; }
-    .logo { font-family: 'Orbitron', monospace; font-size: 1.2rem; font-weight: 900; color: #e03030; cursor: pointer; background: none; border: none; }
-  </style>
-</head>
-<body>
-
-<header>
-  <!-- 3. The Logo Text (Updated to RETAKE) -->
-  <button class="logo" onclick="window.location.reload()">RETAKE</button>
-  
-  <nav>
-    <button onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">Games</button>
-    <button onclick="document.getElementById('episodes').scrollIntoView({behavior:'smooth'})">Episodes</button>
-    <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</button>
-  </nav>
-</header>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RETAKE</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --bg:    #0e0404; --bg-01: #110505; --bg-02: #150606; --bg-03: #190707;
