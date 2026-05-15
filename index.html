@@ -1,5 +1,3 @@
-
-xml
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,21 +8,21 @@ xml
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg:    #0e0404; --bg-01: #110505; --bg-02: #150606; --bg-03: #190707;
+    --bg:    #0e0404; --bg-01: #110505; --bg-02: #150606; --bg-03: #190707; --bg-04: #1c0808;
     --card:  #180606; --border: #3a1010;
     --accent: #e03030; --accent2: #ff6060;
     --text:  #ffaaaa; --muted: #994444;
   }
   body { background: var(--bg); color: var(--text); font-family: 'Rajdhani', sans-serif; min-height: 100vh; overflow-x: hidden; }
   body::before { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px); pointer-events: none; z-index: 999; }
-
+ 
   header { position: sticky; top: 0; z-index: 100; background: rgba(10,2,2,0.9); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; }
   .logo { font-family: 'Orbitron', monospace; font-weight: 900; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--accent); text-shadow: 0 0 24px rgba(224,48,48,0.6); cursor: pointer; background: none; border: none; }
-  .logo span { color: #ff4444; }
-  nav { display: flex; gap: 2rem; }
+  nav { display: flex; gap: 1.6rem; align-items: center; }
   nav button { font-family: 'Rajdhani', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); background: none; border: none; cursor: pointer; transition: color 0.2s; }
   nav button:hover { color: var(--text); }
-
+  .nav-badges-btn { display: flex; align-items: center; gap: 0.4rem; }
+ 
   .hero { position: relative; text-align: center; padding: 7rem 2rem 5rem; overflow: hidden; background: var(--bg); }
   .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(224,48,48,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(224,48,48,0.07) 1px, transparent 1px); background-size: 40px 40px; mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%); }
   .hero-orb { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(224,48,48,0.1) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
@@ -33,21 +31,22 @@ xml
   .hero p { margin-top: 1.2rem; font-size: 1.1rem; color: var(--muted); letter-spacing: 0.05em; max-width: 480px; margin-inline: auto; position: relative; animation: fadeUp 0.7s 0.15s ease both; }
   .hero-tags { display: flex; gap: 0.6rem; justify-content: center; margin-top: 2rem; position: relative; animation: fadeUp 0.7s 0.25s ease both; }
   .tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 3px; border: 1px solid; }
-  .tag.red { border-color: rgba(224,48,48,0.5); color: #ff8080; background: rgba(224,48,48,0.08); }
+  .tag.red  { border-color: rgba(224,48,48,0.5); color: #ff8080; background: rgba(224,48,48,0.08); }
   .tag.dark { border-color: rgba(180,30,30,0.4); color: #cc6060; background: rgba(180,30,30,0.08); }
-  .tag.dim { border-color: rgba(140,20,20,0.4); color: #aa5050; background: rgba(140,20,20,0.08); }
+  .tag.dim  { border-color: rgba(140,20,20,0.4); color: #aa5050; background: rgba(140,20,20,0.08); }
   @keyframes fadeUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
-
+ 
   .section-wrap { width: 100%; }
   .section-01 { background: var(--bg-01); }
   .section-02 { background: var(--bg-02); }
   .section-03 { background: var(--bg-03); }
+  .section-04 { background: var(--bg-04); }
   section { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 4rem; }
   .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-  .section-num { font-family: 'Orbitron', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); opacity: 0.7; }
+  .section-num   { font-family: 'Orbitron', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); opacity: 0.7; }
   .section-title { font-family: 'Orbitron', monospace; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); }
-  .section-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
-
+  .section-line  { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
+ 
   .games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
   .game-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: border-color 0.25s, transform 0.25s; display: flex; flex-direction: column; }
   .game-card:hover { border-color: rgba(224,48,48,0.5); transform: translateY(-3px); }
@@ -55,23 +54,64 @@ xml
   .iframe-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block; }
   .card-info { padding: 1rem 1.1rem 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
   .card-title { font-family: 'Orbitron', monospace; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; color: var(--text); }
-  .card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+  .card-desc  { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
   .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.6rem; }
-  .card-badge { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 3px; }
+ 
+  /* Badges */
+  .card-badge { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 3px; cursor: pointer; transition: filter 0.2s, transform 0.15s; display: inline-block; user-select: none; }
+  .card-badge:hover { filter: brightness(1.45); transform: scale(1.07); }
   .badge-interactive { background: rgba(224,48,48,0.12); color: #ff8080; border: 1px solid rgba(224,48,48,0.35); }
   .badge-clock       { background: rgba(180,30,30,0.12); color: #dd6060; border: 1px solid rgba(180,30,30,0.35); }
   .badge-simulation  { background: rgba(140,20,20,0.12); color: #bb5050; border: 1px solid rgba(140,20,20,0.35); }
+  .badge-bpm         { background: rgba(200,40,40,0.12); color: #ee7070; border: 1px solid rgba(200,40,40,0.35); }
+  .badge-music       { background: rgba(160,25,25,0.12); color: #cc5858; border: 1px solid rgba(160,25,25,0.35); }
+  .badge-viewer      { background: rgba(120,15,15,0.12); color: #bb4848; border: 1px solid rgba(120,15,15,0.35); }
+ 
+  /* Locked/unlocked states */
+  .badge-row { display: flex; align-items: flex-start; gap: 1rem; padding: 0.85rem 1rem; background: #1e0808; border: 1px solid var(--border); border-radius: 6px; transition: border-color 0.3s, background 0.3s; position: relative; overflow: hidden; }
+  .badge-row.locked { opacity: 0.45; filter: grayscale(0.5); }
+  .badge-row.unlocked { border-color: rgba(224,48,48,0.45); background: #240a0a; }
+  .badge-row.unlocked::after { content: '✓ EARNED'; position: absolute; top: 0.5rem; right: 0.7rem; font-family: 'Orbitron', monospace; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.1em; color: var(--accent); opacity: 0.7; }
+  .badge-pill { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 3px; white-space: nowrap; flex-shrink: 0; margin-top: 0.1rem; }
+  .badge-info { display: flex; flex-direction: column; gap: 0.2rem; }
+  .badge-name { font-family: 'Orbitron', monospace; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; color: var(--text); }
+  .badge-desc-text { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
+  .badge-how { font-size: 0.75rem; color: #663333; margin-top: 0.25rem; font-style: italic; }
+  .badge-row.unlocked .badge-how { color: #995555; }
+ 
   .open-link { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
   .open-link:hover { opacity: 1; }
-
+ 
   .episodes-player { background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
   .yt-embed { position: relative; width: 100%; padding-top: 52%; }
   .yt-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block; }
   .episodes-footer { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.2rem; border-top: 1px solid var(--border); }
   .episodes-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
   .playlist-link { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
-  .playlist-linkhover { opacity: 1; }
-
+  .playlist-link:hover { opacity: 1; }
+ 
+  .fcr-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  @media (max-width: 720px) { .fcr-layout { grid-template-columns: 1fr; } }
+  .fcr-projects { display: flex; flex-direction: column; gap: 1.25rem; }
+ 
+  /* Modal */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 1000; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+  .modal-overlay.open { display: flex; }
+  .modal { background: #180606; border: 1px solid var(--border); border-radius: 10px; padding: 2rem; max-width: 540px; width: 90%; position: relative; animation: fadeUp 0.25s ease both; max-height: 85vh; overflow-y: auto; }
+  .modal-title { font-family: 'Orbitron', monospace; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.6rem; }
+  .modal-subtitle { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.4rem; letter-spacing: 0.04em; }
+  .modal-close { position: absolute; top: 1rem; right: 1.1rem; background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: pointer; line-height: 1; }
+  .modal-close:hover { color: var(--text); }
+  .badges-list { display: flex; flex-direction: column; gap: 1rem; }
+ 
+  /* Toast notification */
+  .toast { position: fixed; bottom: 2rem; right: 2rem; background: #1e0606; border: 1px solid var(--accent); border-radius: 8px; padding: 0.85rem 1.2rem; z-index: 2000; display: flex; align-items: center; gap: 0.75rem; transform: translateY(120%); opacity: 0; transition: transform 0.35s ease, opacity 0.35s ease; max-width: 300px; }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .toast-body { display: flex; flex-direction: column; gap: 0.15rem; }
+  .toast-title { font-family: 'Orbitron', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; color: var(--accent); }
+  .toast-msg { font-size: 0.8rem; color: var(--text); letter-spacing: 0.04em; }
+ 
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
   @media (max-width: 620px) { .about-grid { grid-template-columns: 1fr; } nav { display: none; } header { padding: 0 1.25rem; } .hero { padding: 4rem 1.5rem 3rem; } }
   .about-card { background: #1a0707; border: 1px solid var(--border); border-radius: 8px; padding: 1.4rem 1.4rem 1.5rem; }
@@ -79,38 +119,70 @@ xml
   .about-card p { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
   .stat-row { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; }
   .stat { text-align: center; }
-  .stat-num { font-family: 'Orbitron', monospace; font-size: 1.8rem; font-weight: 900; color: var(--accent); line-height: 1; }
+  .stat-num   { font-family: 'Orbitron', monospace; font-size: 1.8rem; font-weight: 900; color: var(--accent); line-height: 1; }
   .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 0.25rem; }
-
-  footer { border-top: 1px solid var(--border); background: #0a0202; padding: 1.5rem 2.5rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: var(--muted); letter-spacing: 0.07em; }
+ 
+  footer { border-top: 1px solid var(--border); background: #0a0202; padding: 1.5rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-size: 0.78rem; color: var(--muted); letter-spacing: 0.07em; flex-wrap: wrap; }
   .footer-logo { font-family: 'Orbitron', monospace; font-size: 0.75rem; font-weight: 700; color: var(--accent); opacity: 0.6; cursor: pointer; background: none; border: none; }
+  .footer-badges { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; }
+  .footer-badge-wrap { position: relative; }
+  .footer-badge-lock { position: absolute; top: -4px; right: -4px; width: 10px; height: 10px; background: #3a1010; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 6px; line-height: 1; }
+  .footer-badge-wrap.earned .footer-badge-lock { display: none; }
+  .footer-badge-wrap:not(.earned) .card-badge { opacity: 0.35; filter: grayscale(0.6); }
 </style>
 </head>
 <body>
-
+ 
 <div id="top"></div>
-
+ 
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-icon">🏅</div>
+  <div class="toast-body">
+    <div class="toast-title">Badge Earned!</div>
+    <div class="toast-msg" id="toast-msg"></div>
+  </div>
+</div>
+ 
+<!-- BADGES MODAL -->
+<div class="modal-overlay" id="badges-modal" onclick="if(event.target===this)closeBadges()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeBadges()">✕</button>
+    <div class="modal-title">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1L9.8 5.6L15 6.2L11.2 9.7L12.4 15L8 12.4L3.6 15L4.8 9.7L1 6.2L6.2 5.6L8 1Z" fill="#e03030" stroke="#ff4444" stroke-width="0.5"/></svg>
+      Badges
+    </div>
+    <div class="modal-subtitle" id="badge-count-label">Loading…</div>
+    <div class="badges-list" id="badges-list"></div>
+  </div>
+</div>
+ 
 <header>
   <button class="logo" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">RETAKE</button>
   <nav>
     <button onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">Games</button>
     <button onclick="document.getElementById('episodes').scrollIntoView({behavior:'smooth'})">Episodes</button>
+    <button onclick="document.getElementById('fcr-music').scrollIntoView({behavior:'smooth'})">FCR Music Maker</button>
     <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</button>
+    <button class="nav-badges-btn" onclick="openBadges()">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" style="margin-right:3px"><path d="M8 1L9.8 5.6L15 6.2L11.2 9.7L12.4 15L8 12.4L3.6 15L4.8 9.7L1 6.2L6.2 5.6L8 1Z" fill="#e03030" stroke="#ff4444" stroke-width="0.5"/></svg>
+      Badges
+    </button>
   </nav>
 </header>
-
+ 
 <div class="hero">
   <div class="hero-grid"></div>
   <div class="hero-orb"></div>
   <h1>My Scratch<span class="line2">Collection</span></h1>
-  <p>Three handcrafted projects — built with Scratch, playable right here.</p>
+  <p>Handcrafted projects — built with Scratch, playable right here.</p>
   <div class="hero-tags">
     <span class="tag red">Interactive</span>
     <span class="tag dark">Clock</span>
     <span class="tag dim">Simulation</span>
   </div>
 </div>
-
+ 
 <!-- 01 GAMES -->
 <div class="section-wrap section-01">
   <section id="games">
@@ -120,43 +192,79 @@ xml
       <div class="section-line"></div>
     </div>
     <div class="games-grid">
-      <div class="game-card">
-        <div class="iframe-wrap"><iframe src="https://scratch.mit.edu/projects/1288760669/embed" allowfullscreen title="Polygon Printer"></iframe></div>
+ 
+      <div class="game-card" data-badge="interactive" data-project="1288760669">
+        <div class="iframe-wrap">
+          <iframe src="https://scratch.mit.edu/projects/1288760669/embed"
+            allowfullscreen allow="autoplay; fullscreen"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock"
+            title="Polygon Printer"></iframe>
+        </div>
         <div class="card-info">
           <div class="card-title">Polygon Printer</div>
           <div class="card-desc">An interactive tool that draws polygons dynamically. Tweak the sides and watch the shapes come to life.</div>
           <div class="card-footer">
-            <span class="card-badge badge-interactive">Interactive</span>
-            <a class="open-link" href="https://scratch.mit.edu/projects/1288760669/" target="_blank">Open ↗</a>
+            <span class="card-badge badge-interactive" onclick="openBadges()">Interactive</span>
+            <a class="open-link" href="https://scratch.mit.edu/projects/1288760669/" target="_blank" rel="noopener">Open ↗</a>
           </div>
         </div>
       </div>
-      <div class="game-card">
-        <div class="iframe-wrap"><iframe src="https://scratch.mit.edu/projects/1314775326/embed" allowfullscreen title="Clock"></iframe></div>
+ 
+      <div class="game-card" data-badge="clock" data-project="1314775326">
+        <div class="iframe-wrap">
+          <iframe src="https://scratch.mit.edu/projects/1314775326/embed"
+            allowfullscreen allow="autoplay; fullscreen"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock"
+            title="Clock"></iframe>
+        </div>
         <div class="card-info">
           <div class="card-title">Clock</div>
           <div class="card-desc">A working clock built entirely in Scratch — watch the hands tick in real time.</div>
           <div class="card-footer">
-            <span class="card-badge badge-clock">Clock</span>
-            <a class="open-link" href="https://scratch.mit.edu/projects/1314775326/" target="_blank">Open ↗</a>
+            <span class="card-badge badge-clock" onclick="openBadges()">Clock</span>
+            <a class="open-link" href="https://scratch.mit.edu/projects/1314775326/" target="_blank" rel="noopener">Open ↗</a>
           </div>
         </div>
       </div>
-      <div class="game-card">
-        <div class="iframe-wrap"><iframe src="https://scratch.mit.edu/projects/1314935638/embed" allowfullscreen title="Spinning Snowflake"></iframe></div>
+ 
+      <div class="game-card" data-badge="simulation" data-project="1314935638">
+        <div class="iframe-wrap">
+          <iframe src="https://scratch.mit.edu/projects/1314935638/embed"
+            allowfullscreen allow="autoplay; fullscreen"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock"
+            title="Spinning Snowflake"></iframe>
+        </div>
         <div class="card-info">
           <div class="card-title">Spinning Snowflake</div>
           <div class="card-desc">A mesmerizing snowflake simulation with rotating fractal-like geometry — pure visual zen.</div>
           <div class="card-footer">
-            <span class="card-badge badge-simulation">Simulation</span>
-            <a class="open-link" href="https://scratch.mit.edu/projects/1314935638/" target="_blank">Open ↗</a>
+            <span class="card-badge badge-simulation" onclick="openBadges()">Simulation</span>
+            <a class="open-link" href="https://scratch.mit.edu/projects/1314935638/" target="_blank" rel="noopener">Open ↗</a>
           </div>
         </div>
       </div>
+ 
+      <div class="game-card" data-badge="bpm" data-project="1320772584">
+        <div class="iframe-wrap">
+          <iframe src="https://scratch.mit.edu/projects/1320772584/embed"
+            allowfullscreen allow="autoplay; fullscreen"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock"
+            title="BPM"></iframe>
+        </div>
+        <div class="card-info">
+          <div class="card-title">BPM</div>
+          <div class="card-desc">A rhythm game built in Scratch — tap along to the beat and test how well you can keep up with the tempo.</div>
+          <div class="card-footer">
+            <span class="card-badge badge-bpm" onclick="openBadges()">BPM</span>
+            <a class="open-link" href="https://scratch.mit.edu/projects/1320772584/" target="_blank" rel="noopener">Open ↗</a>
+          </div>
+        </div>
+      </div>
+ 
     </div>
   </section>
 </div>
-
+ 
 <!-- 02 EPISODES -->
 <div class="section-wrap section-02">
   <section id="episodes">
@@ -165,23 +273,87 @@ xml
       <span class="section-title">Episodes</span>
       <div class="section-line"></div>
     </div>
-    <div class="episodes-player">
+    <div class="episodes-player" id="episodes-player">
       <div class="yt-embed">
-        <iframe src="https://www.youtube.com/embed/videoseries?list=PLkAjmZJzBAYIHBUP1pvk0mK_OZQVJuL1V&autoplay=0" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="FCR Episodes Playlist"></iframe>
+        <iframe id="episodes-iframe"
+          src="https://www.youtube.com/embed/videoseries?list=PLkAjmZJzBAYIHBUP1pvk0mK_OZQVJuL1V&autoplay=0&enablejsapi=1"
+          allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          title="FCR Episodes Playlist"></iframe>
       </div>
       <div class="episodes-footer">
         <span class="episodes-label">FCR Episodes · 6 videos</span>
-        <a class="playlist-link" href="https://www.youtube.com/playlist?list=PLkAjmZJzBAYIHBUP1pvk0mK_OZQVJuL1V" target="_blank">Open playlist ↗</a>
+        <a class="playlist-link" href="https://www.youtube.com/playlist?list=PLkAjmZJzBAYIHBUP1pvk0mK_OZQVJuL1V" target="_blank" rel="noopener">Open playlist ↗</a>
       </div>
     </div>
   </section>
 </div>
-
-<!-- 03 ABOUT -->
+ 
+<!-- 03 FLYING CAR RETAKE: MUSIC MAKER -->
 <div class="section-wrap section-03">
-  <section id="about">
+  <section id="fcr-music">
     <div class="section-header">
       <span class="section-num">03 —</span>
+      <span class="section-title">Flying Car Retake: Music Maker</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="fcr-layout">
+      <div class="fcr-projects">
+ 
+        <div class="game-card" data-badge="music" data-project="1252306854">
+          <div class="iframe-wrap">
+            <iframe src="https://scratch.mit.edu/projects/1252306854/embed"
+              allowfullscreen allow="autoplay; fullscreen"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock"
+              title="FCR Music Maker Ep1 S1 P1"></iframe>
+          </div>
+          <div class="card-info">
+            <div class="card-title">FCR Music Maker: Episode 1 Season 1 Part 1</div>
+            <div class="card-desc">The original Flying Car Retake music maker — compose beats and melodies in Scratch.</div>
+            <div class="card-footer">
+              <span class="card-badge badge-music" onclick="openBadges()">Music</span>
+              <a class="open-link" href="https://scratch.mit.edu/projects/1252306854/" target="_blank" rel="noopener">Open ↗</a>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="game-card" data-badge="music" data-project="1261366683">
+          <div class="iframe-wrap">
+            <iframe src="https://scratch.mit.edu/projects/1261366683/embed"
+              allowfullscreen allow="autoplay; fullscreen"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock"
+              title="FCR Music Maker Ep1 S1 P2"></iframe>
+          </div>
+          <div class="card-info">
+            <div class="card-title">FCR Music Maker: Episode 1 Season 1 Part 2</div>
+            <div class="card-desc">The sequel — more sounds, more control, more creative freedom.</div>
+            <div class="card-footer">
+              <span class="card-badge badge-music" onclick="openBadges()">Music</span>
+              <a class="open-link" href="https://scratch.mit.edu/projects/1261366683/" target="_blank" rel="noopener">Open ↗</a>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+      <div class="episodes-player" style="align-self: start;">
+        <div class="yt-embed">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLkAjmZJzBAYIgT1_SmvL53ceXYWX9co1d&autoplay=0"
+            allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            title="FCR Music Maker Playlist"></iframe>
+        </div>
+        <div class="episodes-footer">
+          <span class="episodes-label">FCR Music Maker</span>
+          <a class="playlist-link" href="https://www.youtube.com/playlist?list=PLkAjmZJzBAYIgT1_SmvL53ceXYWX9co1d" target="_blank" rel="noopener">Open playlist ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+ 
+<!-- 04 ABOUT -->
+<div class="section-wrap section-04">
+  <section id="about">
+    <div class="section-header">
+      <span class="section-num">04 —</span>
       <span class="section-title">About</span>
       <div class="section-line"></div>
     </div>
@@ -190,7 +362,7 @@ xml
         <h3>About Me</h3>
         <p>I'm a game developer who builds projects on Scratch. I love creating interactive experiences — from polygon tools to simulations. This hub showcases my best work.</p>
         <div class="stat-row">
-          <div class="stat"><div class="stat-num">3</div><div class="stat-label">Projects</div></div>
+          <div class="stat"><div class="stat-num">5</div><div class="stat-label">Projects</div></div>
           <div class="stat"><div class="stat-num">6</div><div class="stat-label">Episodes</div></div>
           <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Fun</div></div>
         </div>
@@ -204,11 +376,201 @@ xml
     </div>
   </section>
 </div>
-
+ 
 <footer>
   <button class="footer-logo" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">RETAKE</button>
+  <div class="footer-badges" id="footer-badges">
+    <!-- Populated by JS -->
+  </div>
   <div>Built with Scratch · Hosted with ♥</div>
 </footer>
-
+ 
+<script>
+// ─── Badge definitions ───────────────────────────────────────────────────────
+const BADGE_DEFS = [
+  {
+    id: 'interactive',
+    label: 'Interactive',
+    cls: 'badge-interactive',
+    name: 'Interactive',
+    desc: 'Projects where you directly control or manipulate the output — tools and toys you steer yourself.',
+    how: 'Earned by visiting the Polygon Printer project for 10 seconds.',
+  },
+  {
+    id: 'clock',
+    label: 'Clock',
+    cls: 'badge-clock',
+    name: 'Clock',
+    desc: 'A real-time project that tracks and displays the actual time — watch it tick.',
+    how: 'Earned by visiting the Clock project for 10 seconds.',
+  },
+  {
+    id: 'simulation',
+    label: 'Simulation',
+    cls: 'badge-simulation',
+    name: 'Simulation',
+    desc: 'Visualizations that model a system or phenomenon — sit back and watch it run.',
+    how: 'Earned by visiting the Spinning Snowflake project for 10 seconds.',
+  },
+  {
+    id: 'bpm',
+    label: 'BPM',
+    cls: 'badge-bpm',
+    name: 'BPM',
+    desc: 'A rhythm-focused project built around beats per minute — tap, feel, and play to the pulse.',
+    how: 'Earned by visiting the BPM project for 10 seconds.',
+  },
+  {
+    id: 'music',
+    label: 'Music',
+    cls: 'badge-music',
+    name: 'Music',
+    desc: 'Projects centered on sound and music creation — compose, layer, and listen.',
+    how: 'Earned by visiting either FCR Music Maker project for 10 seconds.',
+  },
+  {
+    id: 'viewer',
+    label: 'Viewer',
+    cls: 'badge-viewer',
+    name: 'Viewer',
+    desc: 'You actually sat down and watched the episodes. Respect.',
+    how: 'Earned by spending 15 seconds on the Episodes section.',
+  },
+];
+ 
+// ─── Storage helpers ─────────────────────────────────────────────────────────
+const LS_KEY = 'retake_badges_v1';
+function loadEarned() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }
+  catch { return []; }
+}
+function saveEarned(arr) {
+  try { localStorage.setItem(LS_KEY, JSON.stringify(arr)); } catch {}
+}
+let earned = loadEarned();
+ 
+// ─── Toast ───────────────────────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3500);
+}
+ 
+// ─── Award a badge ───────────────────────────────────────────────────────────
+function awardBadge(id) {
+  if (earned.includes(id)) return;
+  earned.push(id);
+  saveEarned(earned);
+  const def = BADGE_DEFS.find(b => b.id === id);
+  if (def) showToast(`"${def.name}" badge unlocked!`);
+  renderFooterBadges();
+  // If modal is open, refresh it
+  if (document.getElementById('badges-modal').classList.contains('open')) renderModal();
+}
+ 
+// ─── Footer badges ───────────────────────────────────────────────────────────
+function renderFooterBadges() {
+  const container = document.getElementById('footer-badges');
+  container.innerHTML = BADGE_DEFS.map(b => {
+    const isEarned = earned.includes(b.id);
+    return `<div class="footer-badge-wrap ${isEarned ? 'earned' : ''}" title="${isEarned ? b.name + ' — earned!' : b.name + ' — not yet earned'}">
+      <span class="card-badge ${b.cls}" onclick="openBadges()">${b.label}</span>
+      ${!isEarned ? '<div class="footer-badge-lock">🔒</div>' : ''}
+    </div>`;
+  }).join('');
+}
+ 
+// ─── Modal ───────────────────────────────────────────────────────────────────
+function renderModal() {
+  const count = earned.length;
+  document.getElementById('badge-count-label').textContent =
+    `${count} / ${BADGE_DEFS.length} earned — interact with projects to unlock more`;
+ 
+  document.getElementById('badges-list').innerHTML = BADGE_DEFS.map(b => {
+    const isEarned = earned.includes(b.id);
+    return `<div class="badge-row ${isEarned ? 'unlocked' : 'locked'}">
+      <span class="badge-pill ${b.cls}">${b.label}</span>
+      <div class="badge-info">
+        <div class="badge-name">${b.name}</div>
+        <div class="badge-desc-text">${b.desc}</div>
+        <div class="badge-how">${isEarned ? '✓ ' + b.how.replace('Earned by', 'You') : b.how}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+ 
+function openBadges()  {
+  renderModal();
+  document.getElementById('badges-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeBadges() {
+  document.getElementById('badges-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBadges(); });
+ 
+// ─── IntersectionObserver — award badge after N seconds in view ───────────────
+const timers = {};   // badgeId → setTimeout handle
+const DWELL_GAME    = 10000; // 10s for game cards
+const DWELL_EPISODE = 15000; // 15s for episodes section
+ 
+function observeCard(card) {
+  const badgeId = card.dataset.badge;
+  if (!badgeId) return;
+ 
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (!timers[badgeId] && !earned.includes(badgeId)) {
+          timers[badgeId] = setTimeout(() => {
+            awardBadge(badgeId);
+            delete timers[badgeId];
+          }, DWELL_GAME);
+        }
+      } else {
+        clearTimeout(timers[badgeId]);
+        delete timers[badgeId];
+      }
+    });
+  }, { threshold: 0.4 });
+ 
+  obs.observe(card);
+}
+ 
+// Episodes section observer
+function observeEpisodes() {
+  const section = document.getElementById('episodes-player');
+  if (!section) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (!timers['viewer'] && !earned.includes('viewer')) {
+          timers['viewer'] = setTimeout(() => {
+            awardBadge('viewer');
+            delete timers['viewer'];
+          }, DWELL_EPISODE);
+        }
+      } else {
+        clearTimeout(timers['viewer']);
+        delete timers['viewer'];
+      }
+    });
+  }, { threshold: 0.5 });
+  obs.observe(section);
+}
+ 
+// ─── Init ─────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.game-card[data-badge]').forEach(observeCard);
+  observeEpisodes();
+  renderFooterBadges();
+});
+</script>
+ 
 </body>
 </html>
+ 
